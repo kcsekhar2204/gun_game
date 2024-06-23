@@ -54,7 +54,7 @@ let animationId = null
 let shootEvent = null
 document.querySelector("#highestScore span").innerHTML = highScore
 document.querySelector("#currentScore span").innerHTML = score
-
+const defaultBackgroundColor = window.getComputedStyle(canvas).getPropertyValue('background-color')
 function startgame() {
     if (gameState !== 'ongoing') {
         gameState = 'ongoing';
@@ -62,7 +62,7 @@ function startgame() {
         document.querySelector("#currentScore span").innerHTML = score
         consecutiveMisses = 0;
         bullets = [];
-
+        canvas.style.backgroundColor = defaultBackgroundColor
         shootEvent = function(event){
             if(event.key === " ") {
                 spacePressed = true
@@ -169,8 +169,9 @@ function updateMotion() {
         drawBullet()
         animationId = requestAnimationFrame(updateMotion);
     } else if(gameState === 'ended') {
-        ctx.fillStyle = "#FF0000"; // Red background
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // ctx.fillStyle = "#FF0000"; // Red background
+        // ctx.fillRect(0, 0, canvas.width, canvas.height);
+        canvas.style.backgroundColor = '#FF0000'
     }
     drawGun()
     updateMonster()
