@@ -4,27 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gun Game Scaffold</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.png" />
 </head>
 <body>
-    <!-- Game Canvas -->
-    <canvas id="gameCanvas"></canvas>
 
     <!-- Start Game Button -->
-    <button id="startGameBtn"></button>
+    <button id="startGameBtn">Start Game</button>
 
     <!-- Current Score Display -->
-    <div id="currentScore">Score: </div>
+    <div id="currentScore">Score: <span></span></div>
 
     <!-- Highest Score Display -->
-    <div id="highestScore">High Score: </div>
+    <div id="highestScore">High Score: <span></span></div>
 
     <!-- Add other elements as needed -->
 
-   
-<canvas id="gameCanvas" width="800" height="550"></canvas>
-<script src="script.js"></script>
+    <!-- Game Canvas -->
+    <canvas id="gameCanvas" width="800" height="550"></canvas>
+    <script src="script.js"></script>
     <script>
         // Add your JavaScript logic here
+        document.getElementById('startGameBtn').addEventListener('click', function(event){
+            startgame()
+        });
+        document.addEventListener('keydown', function(event){
+            if(event.key === 'Enter') startgame()
+        })
+
     </script>
 </body>
 </html>
